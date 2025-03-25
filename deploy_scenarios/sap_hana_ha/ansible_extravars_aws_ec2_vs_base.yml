@@ -1,0 +1,12 @@
+---
+# Infrastructure provisioning definitions
+sap_vm_provision_iac_platform: "aws_ec2_vs"
+
+## Linux Pacemaker cluster setup variables
+sap_ha_pacemaker_cluster_aws_region: "{{ sap_vm_provision_aws_vpc_availability_zone[:-1] | d('') }}"
+sap_ha_pacemaker_cluster_aws_access_key_id: "{{ sap_vm_provision_aws_access_key | d('') }}"
+sap_ha_pacemaker_cluster_aws_secret_access_key: "{{ sap_vm_provision_aws_secret_access_key | d('') }}"
+
+## Override of AWS IAM HA roles is required if 'HA-Role-Pacemaker' already exists
+sap_vm_provision_aws_ha_iam_role: "HA-Role-Pacemaker-{{ sap_system_hana_db_sid }}"
+sap_vm_provision_aws_ha_iam_instance_profile: "HA-Role-Pacemaker-{{ sap_system_hana_db_sid }}-profile"
