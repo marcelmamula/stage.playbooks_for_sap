@@ -3,7 +3,7 @@ name: Publish Stage branch to Main
 
 on:
   # Runs on merged pull_request: to stage branch
-  pull_request::
+  pull_request:
     branches:
       - stage
     types:
