@@ -22,7 +22,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: repo_playbooks
-          ref: stage
+          ref: main
+
+      - name: Fetch stage branch
+        working-directory: repo_playbooks
+        run: git fetch origin stage:stage
+
+      - name: Merge stage branch to main
+        working-directory: repo_playbooks
+        run: git merge stage
 
       - name: Copy shared files to scenarios
         working-directory: repo_playbooks
