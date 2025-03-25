@@ -1,3 +1,0 @@
----
-# Infrastructure provisioning definitions
-sap_vm_provision_iac_platform: "aws_ec2_vs"
