@@ -77,12 +77,14 @@ jobs:
                   sed 's/^---/\n/g' "$scenario_spec" >> "$file"
                   sed 's/^---/\n/g' "$scenario_spec" >> "$interactive_vars"
                   rm -f "$scenario_spec"
+                fi  # if scenario_spec exists
 
                 # Append shared platform image fragment when it exists
                 # Images are also appended to interactive vars
                 if [ -f "$fragment_images" ]; then
                   sed 's/^---/\n/g' "$fragment_images" >> "$file"
                   sed 's/^---/\n/g' "$fragment_images" >> "$interactive_vars"
+                fi  # if fragment_images exists
 
                 # Remove base files
                 new_file="${file%_base.yml}.yml"
