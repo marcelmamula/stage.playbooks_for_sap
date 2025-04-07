@@ -47,3 +47,6 @@ jobs:
       - name: Run ansible-lint
         working-directory: repo_playbooks
         run: ansible-lint
+        skip_paths:
+          - deploy_scenarios/.*/ansible_requirements\.yml$
+          - common_fragments/vars/ansible_requirements.yml
