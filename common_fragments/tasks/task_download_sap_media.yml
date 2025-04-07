@@ -78,9 +78,9 @@
       retries: 1
       until: download_task is not failed
       environment:
-        PATH: "{{ sap_launchpad_temp_venv.path }}/bin:{{ ansible_env.PATH }}" 
-        PYTHONPATH: "{{ sap_launchpad_temp_venv.path }}/lib/{{ sap_launchpad_python }}/site-packages" 
-        VIRTUAL_ENV: "{{ sap_launchpad_temp_venv.path }}" 
+        PATH: "{{ sap_launchpad_temp_venv.path }}/bin:{{ ansible_env.PATH }}"
+        PYTHONPATH: "{{ sap_launchpad_temp_venv.path }}/lib/{{ sap_launchpad_python }}/site-packages"
+        VIRTUAL_ENV: "{{ sap_launchpad_temp_venv.path }}"
       vars:
         ansible_python_interpreter: "{{ sap_launchpad_temp_venv.path ~ '/bin/' ~ sap_launchpad_python_interpreter }}"
 
