@@ -37,7 +37,7 @@ jobs:
           pip3 install ansible==11.4.0
           pip3 install ansible-compat==4.1.11
           pip3 install ansible-core==2.18.4
-          pip3 install ansible-lint==6.23.1 
+          pip3 install ansible-lint==25.2.1
 
       - name: Install dependencies for Ansible
         run: |
