@@ -1,6 +1,8 @@
+---
 name: CodeSpell
 
 on:
+  # Runs on push and pull request to dev
   push:
     branches:
       - dev
@@ -8,13 +10,20 @@ on:
     branches:
       - dev
 
+  # Enable manual start button
+  workflow_dispatch:
+
 jobs:
   codespell:
     name: Check for spelling errors
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out the code
+        uses: actions/checkout@v4
+        with:
+          path: repo_playbooks
+
       - uses: codespell-project/actions-codespell@v2
         with:
           path: repo_playbooks
