@@ -22,15 +22,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: repo_playbooks
-          ref: main
+          ref: stage
 
-      - name: Fetch stage branch
-        working-directory: repo_playbooks
-        run: git fetch origin stage:stage
+      # - name: Fetch stage branch
+      #   working-directory: repo_playbooks
+      #   run: git fetch origin stage:stage
 
-      - name: Merge stage branch to main
-        working-directory: repo_playbooks
-        run: git merge stage
+      # - name: Merge stage branch to main
+      #   working-directory: repo_playbooks
+      #   run: git merge stage
 
       - name: Copy shared files to scenarios
         working-directory: repo_playbooks
@@ -43,14 +43,14 @@ jobs:
             files=("$dir"/ansible_extravars_*_base*.yml)
 
             if [[ ${#files[@]} -gt 0 ]]; then
-              # Copy tasks and update paths
-              cp ./common_fragments/tasks/*.yml $dir/optional/
+              # Copy tasks
+              cp -r ./common_fragments/tasks/* $dir/optional/
 
               # Update path to copied tasks
-              sed -i 's/..\/..\/common_fragments\/tasks\//optional\//' $dir/ansible_playbook.yml $dir/optional/*.yml
+              sed -i 's/..\/..\/common_fragments\/tasks\//optional\//' $dir/ansible_playbook.yml $dir/optional/interactive/*.yml
 
               # Copy ansible_requirements
-              cp ./common_fragments/vars/ansible_requirements.yml $dir/
+              cp ./common_fragments/ansible_requirements.yml $dir/
             fi  # if base files were found
           done
           
@@ -69,7 +69,7 @@ jobs:
                 platform=$(basename "$file" | sed 's/ansible_extravars_\(.*\)_base\.yml/\1/')
                 
                 # Define files for appending
-                fragment_vars="common_fragments/vars/platform_${platform}.yml"
+                fragment_vars="common_fragments/vars/platform_vars_${platform}.yml"
                 fragment_images="common_fragments/vars/platform_images_${platform}.yml"
                 scenario_spec="$dir"/ansible_extravars_"$platform"_base_spec.yml
                 interactive_vars="$dir"/optional/ansible_extravars_interactive.yml
@@ -127,10 +127,12 @@ jobs:
           else
             PR_NUMBER="manual"
           fi
+          git checkout main
+          git merge stage
           git commit -m "Merge changes from stage to main branch (PR #$PR_NUMBER)."
 
       - name: Push changes
         working-directory: repo_playbooks
         if: steps.check_changes.outputs.has_changes == 'true'
         run: |
-          git push origin main --force-with-lease
+          git push origin main
