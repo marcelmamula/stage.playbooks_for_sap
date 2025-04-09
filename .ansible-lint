@@ -6,7 +6,7 @@ exclude_paths:
   - .github/
   #- docs/
   - deploy_scenarios/.*/ansible_requirements\.yml$
-  - common_fragments/vars/ansible_requirements.yml
+  - common_fragments/ansible_requirements.yml
 
 enable_list:
   - yaml
