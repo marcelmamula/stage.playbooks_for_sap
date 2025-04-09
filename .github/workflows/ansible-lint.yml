@@ -3,9 +3,9 @@
 name: ansible-lint of the ansible playbooks for sap
 
 on:
-  # Runs at 10:00 on every Monday
-  # schedule:
-  #   - cron: '10 10 * * 1'
+  # Runs at 10:10 on every Monday
+  schedule:
+    - cron: '10 10 * * 1'
 
   # Runs on push to dev and main branches
   push:
