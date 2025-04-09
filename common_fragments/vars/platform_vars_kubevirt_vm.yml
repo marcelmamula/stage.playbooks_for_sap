@@ -7,7 +7,6 @@ sap_vm_provision_bastion_ssh_port: "ENTER_STRING_VALUE_HERE"
 sap_vm_provision_bastion_public_ip: "ENTER_STRING_VALUE_HERE"
 sap_vm_provision_ssh_bastion_private_key_file_path: "ENTER_STRING_VALUE_HERE"
 sap_vm_provision_ssh_host_private_key_file_path: "ENTER_STRING_VALUE_HERE"
-sap_vm_provision_ssh_host_public_key_file_path: "ENTER_STRING_VALUE_HERE"
 
 #### Infrastructure platform variables ####
 sap_vm_provision_kubevirt_cluster_url: "ENTER_STRING_VALUE_HERE"

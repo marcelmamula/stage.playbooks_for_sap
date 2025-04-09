@@ -7,7 +7,6 @@ sap_vm_provision_bastion_ssh_port: "ENTER_STRING_VALUE_HERE"
 sap_vm_provision_bastion_public_ip: "ENTER_STRING_VALUE_HERE"
 sap_vm_provision_ssh_bastion_private_key_file_path: "ENTER_STRING_VALUE_HERE"
 sap_vm_provision_ssh_host_private_key_file_path: "ENTER_STRING_VALUE_HERE"
-sap_vm_provision_ssh_host_public_key_file_path: "ENTER_STRING_VALUE_HERE"
 
 #### Infrastructure platform variables ####
 sap_vm_provision_ibmcloud_api_key: "ENTER_STRING_VALUE_HERE"
@@ -29,33 +28,3 @@ sap_vm_provision_ibmcloud_private_dns_resource_group_name: "" # optional, defaul
 # sap_vm_provision_resource_prefix: "ENTER_STRING_VALUE_HERE"
 # sap_vm_provision_bastion_os_image: "ENTER_STRING_VALUE_HERE"
 # sap_vm_provision_terraform_work_dir_path: "/tmp/tf1"
-
-#### Dictionary of operating system images ####
-sap_vm_provision_ibmcloud_vs_host_os_image_dictionary:
-  rhel-8-4: ".*redhat.*8-4.*minimal.*amd64.*"
-  rhel-8-6: ".*redhat.*8-6.*minimal.*amd64.*"
-  rhel-8-8: ".*redhat.*8-8.*minimal.*amd64.*"
-  rhel-8-10: ".*redhat.*8-10.*minimal.*amd64.*"
-  rhel-9-0: ".*redhat.*9-0.*minimal.*amd64.*"
-  rhel-9-2: ".*redhat.*9-2.*minimal.*amd64.*"
-  rhel-9-4: ".*redhat.*9-4.*minimal.*amd64.*"
-  sles-15-5: ".*sles.*15-5.*amd64-[0-9]"
-  sles-15-6: ".*sles.*15-6.*amd64-[0-9]"
-  # rhel-7-6-sap-ha: ".*redhat.*7-6.*amd64.*hana.*" # retrievable from deprecated list
-  # rhel-7-9-sap-ha: ".*redhat.*7-9.*amd64.*hana.*" # retrievable from deprecated list
-  # rhel-8-1-sap-ha: ".*redhat.*8-1.*amd64.*hana.*" # retrievable from deprecated list
-  # rhel-8-2-sap-ha: ".*redhat.*8-2.*amd64.*hana.*" # retrievable from deprecated list
-  rhel-8-4-sap-ha: ".*redhat.*8-4.*amd64.*hana.*"
-  rhel-8-6-sap-ha: ".*redhat.*8-6.*amd64.*hana.*"
-  rhel-8-8-sap-ha: ".*redhat.*8-8.*amd64.*hana.*"
-  rhel-8-10-sap-ha: ".*redhat.*8-10.*amd64.*hana.*"
-  rhel-9-0-sap-ha: ".*redhat.*9-0.*amd64.*hana.*"
-  rhel-9-2-sap-ha: ".*redhat.*9-2.*amd64.*hana.*"
-  rhel-9-4-sap-ha: ".*redhat.*9-4.*amd64.*hana.*"
-  # sles-12-4-sap-ha: ".*sles.*12-4.*amd64.*hana.*" # retrievable from deprecated list
-  # sles-12-5-sap-ha: ".*sles.*12-5.*amd64.*hana.*" # retrievable from deprecated list
-  # sles-15-1-sap-ha: ".*sles.*15-1.*amd64.*hana.*" # retrievable from deprecated list
-  sles-15-3-sap-ha: ".*sles.*15-3.*amd64.*hana.*"
-  sles-15-4-sap-ha: ".*sles.*15-4.*amd64.*hana.*"
-  sles-15-5-sap-ha: ".*sles.*15-5.*amd64.*hana.*"
-  sles-15-6-sap-ha: ".*sles.*15-6.*amd64.*hana.*"

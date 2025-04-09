@@ -14,14 +14,14 @@
 
     - name: Check if interactive tasks are available
       ansible.builtin.stat:
-        path: ../../common_fragments/tasks/task_interactive_inputs.yml
+        path: ../../common_fragments/tasks/interactive/main.yml
       register: sap_playbook_interactive_tasks_availability
       ignore_errors: true
       when: sap_playbook_interactive_input_type is defined and sap_playbook_interactive_input_type
 
     - name: Playbook Interactive - Collection of interactive inputs
       ansible.builtin.include_tasks:
-        file: ../../common_fragments/tasks/task_interactive_inputs.yml
+        file: ../../common_fragments/tasks/interactive/main.yml
       when:
         - sap_vm_provision_iac_type is undefined or sap_vm_provision_iac_platform is undefined
         - sap_playbook_interactive_input_type is defined and sap_playbook_interactive_input_type
